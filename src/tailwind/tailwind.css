@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.teststyle {
+  @apply text-red-200 text-6xl;
+}

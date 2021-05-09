@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main.scss";
+@import '../scss/test.scss';
 h2 {
     color: blue;
 }

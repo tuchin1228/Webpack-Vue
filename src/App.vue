@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{ text }}</h1>
+        <h1 class="text-blue-400  text-6xl">{{ text }}</h1>
         <router-link to="/child">go child</router-link>
         {{data}}
         <router-view></router-view>
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+
 import axios from "axios";
 export default {
     data() {
@@ -29,8 +30,11 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
-h1 {
+<style lang="scss" scoped>
+.appvue{
+    color: red;
+}
+h1{
     color: red;
 }
 </style>

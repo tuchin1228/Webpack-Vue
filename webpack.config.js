@@ -9,7 +9,7 @@ module.exports = {
 
   context: path.resolve(__dirname, './src'),
   entry: {
-    index: './index.js'
+    index: './index.js',
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -46,20 +46,49 @@ module.exports = {
         test: /\.pug$/,
         exclude: /node_modules/,
         loader: 'pug-html-loader',
-      }, 
+      },
+
       {
         test: /\.(vue)$/,
         use: ['vue-loader']
       },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     MiniCssExtractPlugin.loader,
+      //     'css-loader',
+      //     {
+      //       loader: "postcss-loader",
+      //     }
+      //   ]
+      // },
+
       {
-        test: /\.(scss|sass)$/,
+        test: /\.(scss|sass|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
+          // MiniCssExtractPlugin.extract(
+          // {
+          //   loader: 'style-loader',
+          //   options: {
+          //     injectType: 'linkTag'
+          //   }
+          // },
+          // {
+          //   loader: "file-loader",
+          //   options: {
+          //     name: './css/[name].css'
+          //   }
+          // },
           'css-loader',
           'postcss-loader',
-          'sass-loader',
+          {
+            loader:'sass-loader',
+          }
+          // )
         ]
       },
+
       {
         test: /\.js$/,
         use: [
@@ -85,7 +114,8 @@ module.exports = {
             },
           },
         ]
-      }
+      },
+
     ]
   },
   plugins: [
@@ -94,6 +124,8 @@ module.exports = {
       filename: 'css/[name].css',
       chunkFilename: 'css/[name].css',
     }),
+ 
+ 
     new HtmlWebpackPlugin({
       title: '網頁title',
       filename: 'index.html',
@@ -107,6 +139,7 @@ module.exports = {
         { from: "assets", to: "assets" },
       ],
     }),
+
   ],
   resolve: {
     extensions: ['.js', '.vue'],
